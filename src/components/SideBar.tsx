@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
-import { api } from '../services/api';
-import { Button } from './Button'
+import { useEffect, useState } from "react";
+import { api } from "../services/api";
+import { Button } from '../components/Button';
+
+import '../styles/sidebar.scss';
 
 interface GenreResponseProps {
   id: number;
@@ -8,15 +10,12 @@ interface GenreResponseProps {
   title: string;
 }
 
-interface SideBarProps{
+interface SideBarProps {
   selectedGenreId: number,
-  setSelectedGenre(params:{}): void,
-  setSelectedGenreId(params:number): void
+  handleClickButton: (genre: number) => void
 }
 
-export function SideBar( {selectedGenreId, setSelectedGenre, setSelectedGenreId}: SideBarProps ) {
-
-  const [genres, setGenres] = useState<GenreResponseProps[]>([]);
+export function SideBar({ selectedGenreId, handleClickButton }: SideBarProps) {
 
   useEffect(() => {
     api.get<GenreResponseProps[]>('genres').then(response => {
@@ -24,33 +23,26 @@ export function SideBar( {selectedGenreId, setSelectedGenre, setSelectedGenreId}
     });
   }, []);
 
-  useEffect(() => {
-    api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
-      setSelectedGenre(response.data);
-    })
-  }, [selectedGenreId]);
 
-  function handleClickButton(id: number) {
-    setSelectedGenreId(id);
-  }
+  const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
   return (
     <nav className="sidebar">
-        <span>Watch<p>Me</p></span>
+      <span>Watch<p>Me</p></span>
 
-        <div className="buttons-container">
-          {genres.map(genre => (
-            <Button
-              key={String(genre.id)}
-              title={genre.title}
-              iconName={genre.name}
-              onClick={() => handleClickButton(genre.id)}
-              selected={selectedGenreId === genre.id}
-            />
-          ))}
-        </div>
+      <div className="buttons-container">
+        {genres.map(genre => (
+          <Button
+            key={String(genre.id)}
+            title={genre.title}
+            iconName={genre.name}
+            onClick={() => handleClickButton(genre.id)}
+            selected={selectedGenreId === genre.id}
+          />
+        ))}
+      </div>
 
-      </nav>
+    </nav>
   )
 
 }
