@@ -4877,10 +4877,10 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react-refresh@^0.9.0", "react-refresh@>=0.10.0 <1.0.0":
-  "integrity" "sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ=="
-  "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.9.0.tgz"
-  "version" "0.9.0"
+"react-refresh@^0.10.0", "react-refresh@>=0.10.0 <1.0.0":
+  "integrity" "sha512-PgidR3wST3dDYKr6b4pJoqQFpPGNKDSCDx4cZoshjXipw3LzO7mG1My2pwEzz2JVkF+inx3xRpDeQLFQGH/hsQ=="
+  "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.10.0.tgz"
+  "version" "0.10.0"
 
 "react@*", "react@^16.8.6 || ^17", "react@^17.0.1", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
